@@ -64,6 +64,9 @@ public class App
         } finally {
             in.close();
         }
+
+        // prints the resulting compilation unit to default system output
+        System.out.println(cu.toString());
 		
 		try {
 			new NodeIterator(new NodeIterator.NodeHandler() {
@@ -76,5 +79,28 @@ public class App
 		 } catch (ParseException | IOException e) {
 			new RuntimeException(e);
 		 }
+		
+
+	    
 	}
+	public InjectableStepsFactory stepsFactory() {
+        Map<String, Object> state = new HashMap<>();
+
+        return new InstanceStepsFactory(configuration(),
+                new SharedSteps(state),
+                new ParsingSteps(state));
+    }
+    
+    public ParsingTest() {
+        super("**/bdd/parsing*.story");
+}
+    public static InputStream getSampleStream(String sampleName) {
+        InputStream is = TestUtils.class.getClassLoader().getResourceAsStream("com/github/javaparser/bdd/samples/"
+                + sampleName + ".java");
+        if (is == null) {
+            throw new RuntimeException("Example not found, check your test. Sample name: " + sampleName);
+        }
+        return is;
+    }
+
 }

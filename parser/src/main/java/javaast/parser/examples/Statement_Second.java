@@ -53,7 +53,7 @@ public class Statement_Second {
 	  }).explore(projectDir);
    }
    
-   public static boolean check(Node node) {
+   public static boolean check(Node node) { //Check statement Type
 	  if (node instanceof IfStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]" + " if statement");
 		 check(((IfStmt) node).getThenStmt());
@@ -86,6 +86,7 @@ public class Statement_Second {
 	  } else if (node instanceof ExpressionStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " Expression statement" + " " +((ExpressionStmt) node).getExpression());
+		 
 		 return false;
 	  } else if (node instanceof ForeachStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
