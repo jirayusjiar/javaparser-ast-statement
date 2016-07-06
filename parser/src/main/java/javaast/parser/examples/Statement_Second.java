@@ -97,7 +97,11 @@ public class Statement_Second {
 		  } else if (node instanceof ForStmt) {
 			  System.out.println(" [" + node.getBeginLine() + "]"
 					   + " For statement");
-			  check(((ForStmt) node).getBody());
+			  Node check1 = ((ForStmt) node).getBody();
+			  if(check1 instanceof BlockStmt)
+			  {
+				  System.out.println("Yes");
+			  }
 				 return false;
 		  } else if (node instanceof LabeledStmt) {
 			  System.out.println(" [" + node.getBeginLine() + "]"
