@@ -19,6 +19,7 @@ public class App
         testAfterMain();
         for(int x = 0;x<1;++x){
 			System.out.println("Inside for statement");
+			break;
 		}
 		while(true){
 			System.out.println("Inside while statement");

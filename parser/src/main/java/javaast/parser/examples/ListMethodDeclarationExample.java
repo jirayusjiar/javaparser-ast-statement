@@ -28,7 +28,7 @@ public class ListMethodDeclarationExample {
 			   @Override
 			   public void visit(MethodDeclaration n, Object arg) {
 				  super.visit(n, arg);
-				  System.out.println(" * " + n.getName());
+				  System.out.println("["+n.getBeginLine()+"]" + n.getName() );
 			   }
 			}.visit(JavaParser.parse(file), null);
 			System.out.println(); // empty line
