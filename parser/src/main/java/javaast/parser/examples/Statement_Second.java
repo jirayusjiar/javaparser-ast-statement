@@ -51,100 +51,97 @@ public class Statement_Second {
 		 }
 	  }).explore(projectDir);
    }
-   
-   public static boolean check(Node node)
-   {
-	   if (node instanceof IfStmt) {
-			 System.out.println(" [" + node.getBeginLine() + "]"
-				   + " if statement");
-			 check(((IfStmt) node).getThenStmt());
-			 check(((IfStmt) node).getElseStmt());
-			 return false;
-		  } else if (node instanceof AssertStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Assert statement");
-				 return false;
-		  } else if (node instanceof BreakStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Break statement");
-				 return false;
-		  } else if (node instanceof ContinueStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Continue statement");
-				 return false;
-		  } else if (node instanceof  	DoStmt ) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Do statement");
-			  check(((DoStmt) node).getBody());
-				 return false;
-		  } else if (node instanceof  	EmptyStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Empty statement");
-				 return false;
-		  } else if (node instanceof  	ExplicitConstructorInvocationStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " ExplicitConstructorInvocation statement");
-				 return false;
-		  } else if (node instanceof  	ExpressionStmt ) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Expression statement");
-				 return false;
-		  } else if (node instanceof ForeachStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Foreach statement");
-			  check(((ForeachStmt) node).getBody());
-				 return false;
-		  } else if (node instanceof ForStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " For statement");
-			  check(((ForStmt) node).getBody());
-				 return false;
-		  } else if (node instanceof LabeledStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Labeled statement");
-				 return false;
-		  } else if (node instanceof ReturnStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Return statement");
-				 return false;
-		  } else if (node instanceof SwitchEntryStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " SwitchEntry statement");
-				 return false;
-		  }else if (node instanceof SwitchStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Switch statement");
-				 return false;
-		  }else if (node instanceof SynchronizedStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Synchronized statement");
-				 return false;
-		  }else if (node instanceof ThrowStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Throw statement");
-				 return false;
-		  }else if (node instanceof TryStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Try statement");
-				 return false;
-		  }else if (node instanceof TypeDeclarationStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " TypeDeclaration statement");
-				 return false;
-		  }else if (node instanceof WhileStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " While statement");
-			  check(((WhileStmt) node).getBody());
-				 return false;
-		  }
-	   	
-		  /*else if (node instanceof BlockStmt) {
-			  System.out.println(" [" + node.getBeginLine() + "]"
-					   + " Block statement");
-				 return false;
-		  }*/
-		  else
-			  return true;
+
+   public static boolean check(Node node) {
+	  if (node instanceof IfStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]" + " if statement");
+		 check(((IfStmt) node).getThenStmt());
+		 check(((IfStmt) node).getElseStmt());
+		 return false;
+	  } else if (node instanceof AssertStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " Assert statement");
+		 return false;
+	  } else if (node instanceof BreakStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " Break statement");
+		 return false;
+	  } else if (node instanceof ContinueStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " Continue statement");
+		 return false;
+	  } else if (node instanceof DoStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]" + " Do statement");
+		 check(((DoStmt) node).getBody());
+		 return false;
+	  } else if (node instanceof EmptyStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " Empty statement");
+		 return false;
+	  } else if (node instanceof ExplicitConstructorInvocationStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " ExplicitConstructorInvocation statement");
+		 return false;
+	  } else if (node instanceof ExpressionStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " Expression statement");
+		 return false;
+	  } else if (node instanceof ForeachStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " Foreach statement");
+		 check(((ForeachStmt) node).getBody());
+		 return false;
+	  } else if (node instanceof ForStmt) {
+		 System.out
+			   .println(" [" + node.getBeginLine() + "]" + " For statement");
+		 check(((ForStmt) node).getBody());
+		 return false;
+	  } else if (node instanceof LabeledStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " Labeled statement");
+		 return false;
+	  } else if (node instanceof ReturnStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " Return statement");
+		 return false;
+	  } else if (node instanceof SwitchEntryStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " SwitchEntry statement");
+		 return false;
+	  } else if (node instanceof SwitchStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " Switch statement");
+		 return false;
+	  } else if (node instanceof SynchronizedStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " Synchronized statement");
+		 return false;
+	  } else if (node instanceof ThrowStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " Throw statement");
+		 return false;
+	  } else if (node instanceof TryStmt) {
+		 System.out
+			   .println(" [" + node.getBeginLine() + "]" + " Try statement");
+		 return false;
+	  } else if (node instanceof TypeDeclarationStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " TypeDeclaration statement");
+		 return false;
+	  } else if (node instanceof WhileStmt) {
+		 System.out.println(" [" + node.getBeginLine() + "]"
+			   + " While statement");
+		 for (Node childNode : node.getChildrenNodes()) {
+			check(childNode);
+		 }
+		 return false;
+	  } else if (node instanceof BlockStmt) {
+		 for (Node childNode : node.getChildrenNodes()) {
+			check(childNode);
+		 }// TODO Get all children nodes within if else for while blah2
+		 return false;
+	  } else
+		 return true;
    }
 
    public static void main(String[] args) {

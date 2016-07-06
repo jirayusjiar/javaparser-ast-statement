@@ -37,6 +37,7 @@ public class App
 		}
 		while(true){
 			System.out.println("Inside while statement");
+			if(true){}
 			break;
 		}
 	}
