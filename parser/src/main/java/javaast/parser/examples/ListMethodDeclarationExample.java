@@ -1,4 +1,4 @@
-// 1 
+// 2
 
 package javaast.parser.examples;
 
@@ -9,7 +9,27 @@ import javaast.parser.support.DirExplorer;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseException;
+
+
+
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.body.AnnotationDeclaration;
+import com.github.javaparser.ast.body.AnnotationMemberDeclaration;
+import com.github.javaparser.ast.body.BodyDeclaration;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.ConstructorDeclaration;
+import com.github.javaparser.ast.body.TypeDeclaration;
+import com.github.javaparser.ast.body.EmptyMemberDeclaration;
+import com.github.javaparser.ast.body.EmptyTypeDeclaration;
+import com.github.javaparser.ast.body.InitializerDeclaration;
+import com.github.javaparser.ast.body.FieldDeclaration;
+import com.github.javaparser.ast.body.EnumConstantDeclaration;
+import com.github.javaparser.ast.body.EnumDeclaration;
+import com.github.javaparser.ast.body.VariableDeclarator;
+import com.github.javaparser.ast.body.WithDeclaration;
+
+
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 // TODO import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 // TODO Cover all the declaration type

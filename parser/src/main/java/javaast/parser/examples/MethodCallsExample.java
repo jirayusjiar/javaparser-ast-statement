@@ -1,4 +1,4 @@
-// 2
+// 1
 
 package javaast.parser.examples;
 import java.io.File;
@@ -8,6 +8,7 @@ import javaast.parser.support.DirExplorer;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseException;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.google.common.base.Strings;
@@ -22,10 +23,15 @@ public class MethodCallsExample {
 		 System.out.println(Strings.repeat("=", path.length()));
 		 try {
 			new VoidVisitorAdapter<Object>() {
+				@Override
+				   public void visit(ClassOrInterfaceDeclaration n, Object arg) {
+	                   super.visit(n, arg);
+	                   System.out.println( "[" + n.getBeginLine() + "] Class:" + n.getName());
+	               }
 			   @Override
 			   public void visit(MethodCallExpr n, Object arg) {
 				  super.visit(n, arg);
-				  System.out.println(" [L " + n.getBeginLine() + "] " + n);
+				  System.out.println("[" + n.getBeginLine() + "] " + n);
 			   }
 			}.visit(JavaParser.parse(file), null);
 			System.out.println(); // empty line
