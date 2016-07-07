@@ -32,7 +32,7 @@ import com.github.javaparser.ast.stmt.TypeDeclarationStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.google.common.base.Strings;
 
-public class Statement_Second {
+public class GetStatementLine {
 
    public static void statementsByLine(File projectDir) {
 	  new DirExplorer((level, path, file) -> path.endsWith(".java"), (level,
@@ -85,8 +85,7 @@ public class Statement_Second {
 		 return false;
 	  } else if (node instanceof ExpressionStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
-			   + " Expression statement" + " " +((ExpressionStmt) node).getExpression());
-		 
+			   + " Expression statement" + " " +((ExpressionStmt) node).getExpression().getClass());
 		 return false;
 	  } else if (node instanceof ForeachStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
