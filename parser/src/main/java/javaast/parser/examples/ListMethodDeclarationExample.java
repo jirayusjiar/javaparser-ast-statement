@@ -26,7 +26,6 @@ import com.github.javaparser.ast.body.InitializerDeclaration;
 import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.EnumConstantDeclaration;
 import com.github.javaparser.ast.body.EnumDeclaration;
-import com.github.javaparser.ast.body.VariableDeclarator;
 import com.github.javaparser.ast.body.WithDeclaration;
 
 
@@ -48,8 +47,25 @@ public class ListMethodDeclarationExample {
 			   @Override
 			   public void visit(MethodDeclaration n, Object arg) {
 				  super.visit(n, arg);
-				  System.out.println("["+n.getBeginLine()+"]" + n.getName() );
+				  System.out.println("["+n.getBeginLine()+"]" + n.getName() + " MethodDeclaration" );
 			   }
+			   @Override
+			   public void visit(AnnotationDeclaration n, Object arg) {
+				  super.visit(n, arg);
+				  System.out.println("["+n.getBeginLine()+"]" + n.getName() + " AnnotationDeclaration" );
+			   }
+			   @Override
+			   public void visit(AnnotationMemberDeclaration n, Object arg) {
+				  super.visit(n, arg);
+				  System.out.println("["+n.getBeginLine()+"]" + n.getName() + " AnnotationMemberDeclaration" );
+			   }
+			   
+			   @Override
+			   public void visit(VariableDeclarator n, Object arg) {
+				  super.visit(n, arg);
+				  System.out.println("["+n.getBeginLine()+"]" + n.getId() + " VariableDeclarator" );
+			   }
+			   
 			}.visit(JavaParser.parse(file), null);
 			System.out.println(); // empty line
 		 } catch (ParseException | IOException e) {

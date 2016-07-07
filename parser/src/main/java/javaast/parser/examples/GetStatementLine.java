@@ -30,6 +30,8 @@ import com.github.javaparser.ast.stmt.ThrowStmt;
 import com.github.javaparser.ast.stmt.TryStmt;
 import com.github.javaparser.ast.stmt.TypeDeclarationStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
+import com.github.javaparser.ast.expr.Expression;
+
 import com.google.common.base.Strings;
 
 public class GetStatementLine {
@@ -59,11 +61,11 @@ public class GetStatementLine {
 		 check(((IfStmt) node).getThenStmt());
 		 check(((IfStmt) node).getElseStmt());
 		 return false;
-	  } else if (node instanceof AssertStmt) {
+	  } /*else if (node instanceof AssertStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " Assert statement");
 		 return false;
-	  } else if (node instanceof BreakStmt) {
+	  }*/ else if (node instanceof BreakStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " Break statement");
 		 return false;
@@ -75,7 +77,7 @@ public class GetStatementLine {
 		 System.out.println(" [" + node.getBeginLine() + "]" + " Do statement");
 		 check(((DoStmt) node).getBody());
 		 return false;
-	  } else if (node instanceof EmptyStmt) {
+	  } /*else if (node instanceof EmptyStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " Empty statement");
 		 return false;
@@ -87,7 +89,7 @@ public class GetStatementLine {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " Expression statement" + " " +((ExpressionStmt) node).getExpression().getClass());
 		 return false;
-	  } else if (node instanceof ForeachStmt) {
+	  }*/ else if (node instanceof ForeachStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " Foreach statement");
 		 check(((ForeachStmt) node).getBody());
@@ -97,12 +99,12 @@ public class GetStatementLine {
 			   .println(" [" + node.getBeginLine() + "]" + " For statement");
 		 check(((ForStmt) node).getBody());
 		 return false;
-	  } else if (node instanceof LabeledStmt) {
+	  } /*else if (node instanceof LabeledStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " Labeled statement");
 		 check(((LabeledStmt) node).getStmt());
 		 return false;
-	  } else if (node instanceof ReturnStmt) {
+	  }*/ else if (node instanceof ReturnStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " Return statement");
 		 return false;
@@ -120,12 +122,12 @@ public class GetStatementLine {
 				check(childNode);
 			 }
 		 return false;
-	  } else if (node instanceof SynchronizedStmt) {
+	  } /*else if (node instanceof SynchronizedStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " Synchronized statement");
 		 check(((SynchronizedStmt) node).getBlock());
 		 return false;
-	  } else if (node instanceof ThrowStmt) {
+	  }*/ else if (node instanceof ThrowStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " Throw statement");
 		 return false;
@@ -137,11 +139,11 @@ public class GetStatementLine {
 			 }
 		 check(((TryStmt) node).getFinallyBlock());
 		 return false;
-	  } else if (node instanceof TypeDeclarationStmt) {
+	  } /*else if (node instanceof TypeDeclarationStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " TypeDeclaration statement"+((TypeDeclarationStmt) node).getTypeDeclaration());
 		 return false;
-	  } else if (node instanceof WhileStmt) {
+	  }*/ else if (node instanceof WhileStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]"
 			   + " While statement");
 		 check(((WhileStmt) node).getBody());
