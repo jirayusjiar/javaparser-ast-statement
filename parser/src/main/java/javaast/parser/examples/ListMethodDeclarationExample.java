@@ -97,7 +97,7 @@ public class ListMethodDeclarationExample {
 			   @Override
 			   public void visit(FieldDeclaration n, Object arg) {
 				  super.visit(n, arg);
-				  System.out.println("["+n.getBeginLine()+"]" + n.toString() + " FieldDeclaration" );
+				  System.out.println("["+n.getBeginLine()+"]" + n.getType() + " FieldDeclaration" );
 			   }
 			   @Override
 			   public void visit(InitializerDeclaration n, Object arg) {
