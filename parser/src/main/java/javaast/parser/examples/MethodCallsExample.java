@@ -23,15 +23,10 @@ public class MethodCallsExample {
 		 System.out.println(Strings.repeat("=", path.length()));
 		 try {
 			new VoidVisitorAdapter<Object>() {
-				@Override
-				   public void visit(ClassOrInterfaceDeclaration n, Object arg) {
-	                   super.visit(n, arg);
-	                   System.out.println( "[" + n.getBeginLine() + "] Class:" + n.getName());
-	               }
 			   @Override
 			   public void visit(MethodCallExpr n, Object arg) {
 				  super.visit(n, arg);
-				  System.out.println("[" + n.getBeginLine() + "] " + n);
+				  System.out.println("[" + n.getBeginLine() + "] " + n.getName());
 			   }
 			}.visit(JavaParser.parse(file), null);
 			System.out.println(); // empty line

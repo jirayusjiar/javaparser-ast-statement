@@ -55,7 +55,7 @@ public class GetStatementLine {
 	  }).explore(projectDir);
    }
    
-   public static boolean check(Node node) { //Check statement Type
+   public static boolean check(Node node) { //Check statement Type //filter out statement that don,t use in this work
 	  if (node instanceof IfStmt) {
 		 System.out.println(" [" + node.getBeginLine() + "]" + " if statement");
 		 check(((IfStmt) node).getThenStmt());
