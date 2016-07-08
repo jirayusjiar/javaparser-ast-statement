@@ -52,7 +52,7 @@ public class Full_Parser {
    public static void statementsByLine(File projectDir) {
 	  new DirExplorer((level, path, file) -> path.endsWith(".java"), (level,
 			path, file) -> {
-		 System.out.println(path.toCharArray());
+		 System.out.println(path);
 		 System.out.println(Strings.repeat("=", path.length()));
 		 try {
 			new NodeIterator(new NodeIterator.NodeHandler() {

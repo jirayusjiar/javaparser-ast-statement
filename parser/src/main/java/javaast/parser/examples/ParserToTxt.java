@@ -54,7 +54,9 @@ public class ParserToTxt {
 	  new DirExplorer((level, path, file) -> path.endsWith(".java"), (level,
 			path, file) -> {
 		 try {
-			 PrintWriter writer = new PrintWriter(path.toCharArray()+".txt", "UTF-8");
+			 String charArray = file.getName();
+			 System.out.println(charArray);
+			PrintWriter writer = new PrintWriter(charArray+".txt", "UTF-8");
 			 writer.println(path);
 			 writer.println(Strings.repeat("=", path.length()));
 			new NodeIterator(new NodeIterator.NodeHandler() {
