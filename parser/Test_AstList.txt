@@ -1,0 +1,31 @@
+12: Switch statement
+13: SwitchEntry statement
+15: Break statement
+17: SwitchEntry statement
+19: Break statement
+21: SwitchEntry statement
+21: SwitchEntry statement
+23: Break statement
+25: SwitchEntry statement
+27: Break statement
+5:day VariableDeclarator
+5:Day FieldDeclaration
+7:EnumTest ConstructorDeclaration
+14:println
+18:println
+22:println
+26:println
+11:tellItLikeItIs MethodDeclaration
+32:firstDay VariableDeclarator
+33:tellItLikeItIs
+34:thirdDay VariableDeclarator
+35:tellItLikeItIs
+36:fifthDay VariableDeclarator
+37:tellItLikeItIs
+38:sixthDay VariableDeclarator
+39:tellItLikeItIs
+40:seventhDay VariableDeclarator
+41:tellItLikeItIs
+31:main MethodDeclaration
+3:MyTest ClassOrInterfaceDeclaration
+

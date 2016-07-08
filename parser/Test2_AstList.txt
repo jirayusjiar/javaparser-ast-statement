@@ -1,0 +1,208 @@
+166: Return statement
+236: Switch statement
+258: Return statement
+268:if statement
+276:if statement
+280:if statement
+282:if statement
+[286: While statement
+288: Break statement
+290:Do statement
+293:Do statement
+294: Foreach statement
+297:For statement
+298: Break statement
+301:For statement
+302: Break statement
+314:Try statement
+315:if statement
+316: Throw statement
+325:Try statement
+326:if statement
+327: Throw statement
+332:Try statement
+333:if statement
+334: Throw statement
+339:Try statement
+344:Try statement
+350:Try statement
+353:Try statement
+360: Return statement
+389: Return statement
+16:clz1 VariableDeclarator
+16:Class FieldDeclaration
+18:clz2 VariableDeclarator
+18:Class FieldDeclaration
+20:clz3 VariableDeclarator
+20:Class FieldDeclaration
+22:clz4 VariableDeclarator
+22:Class FieldDeclaration
+24:arr VariableDeclarator
+24:int[] FieldDeclaration
+26:bye VariableDeclarator
+26:byte FieldDeclaration
+28:byebye[] VariableDeclarator
+28:byte FieldDeclaration
+30:sh1 VariableDeclarator
+30:sh2 VariableDeclarator
+30:short FieldDeclaration
+32:intWithUnderscore VariableDeclarator
+32:int FieldDeclaration
+34:longWithUnderscore VariableDeclarator
+34:long FieldDeclaration
+36:floatWithUnderscore VariableDeclarator
+36:float FieldDeclaration
+38:floatWithUnderscoreAndExponent VariableDeclarator
+38:float FieldDeclaration
+40:doubleWithUnderscore VariableDeclarator
+40:double FieldDeclaration
+42:doubleWithUnderscoreAndExponent VariableDeclarator
+42:double FieldDeclaration
+44:binaryLiteral VariableDeclarator
+44:int FieldDeclaration
+46:arrLS VariableDeclarator
+46:List<String>[][] FieldDeclaration
+48:; EmptyMemberDeclaration
+51:z VariableDeclarator
+51:y VariableDeclarator
+52:a VariableDeclarator
+54:b VariableDeclarator
+50:{
+    int z = 0, y = 0;
+    int a = (z) + y;
+    a = (+z) + y;
+    byte b = (byte) +y;
+} InitializerDeclaration
+57:diamond1 VariableDeclarator
+57:List<String> FieldDeclaration
+62:x VariableDeclarator
+62:int FieldDeclaration
+68:b VariableDeclarator
+64:main MethodDeclaration
+59:Ugly ClassOrInterfaceDeclaration
+98:; EmptyMemberDeclaration
+101:arr2 VariableDeclarator
+100:int[][][][] FieldDeclaration
+103:fff VariableDeclarator
+103:float FieldDeclaration
+105:cc VariableDeclarator
+105:char FieldDeclaration
+107:arr3 VariableDeclarator
+107:int[][] FieldDeclaration
+109:arr4[] VariableDeclarator
+109:int[] FieldDeclaration
+111:t VariableDeclarator
+111:JavaConcepts FieldDeclaration
+113:static {
+    arr4 = new int[][] { { 2 }, { 1 } };
+} InitializerDeclaration
+117:{
+    arr3 = new int[][] { { 2 }, { 1 } };
+} InitializerDeclaration
+123:asc EnumConstantDeclaration
+123:def EnumConstantDeclaration
+121:Teste EnumDeclaration
+128:m EnumConstantDeclaration
+128:f EnumConstantDeclaration
+131:Sexo_ EnumDeclaration
+134:Sexo ConstructorDeclaration
+126:Sexo EnumDeclaration
+143:mm MethodDeclaration
+141:m EnumConstantDeclaration
+149:mm MethodDeclaration
+147:f EnumConstantDeclaration
+154:nnn MethodDeclaration
+156:x VariableDeclarator
+156:int FieldDeclaration
+158:Enum ConstructorDeclaration
+162:mm MethodDeclaration
+138:Enum EnumDeclaration
+165:ddd MethodDeclaration
+171:val1 VariableDeclarator
+172:val2 VariableDeclarator
+173:check2
+174:b VariableDeclarator
+174:y VariableDeclarator
+177:i VariableDeclarator
+177:int FieldDeclaration
+179:X ConstructorDeclaration
+182:m MethodDeclaration
+175:X ClassOrInterfaceDeclaration
+192:m
+188:Y ConstructorDeclaration
+195:Y ConstructorDeclaration
+199:Y ConstructorDeclaration
+185:Y ClassOrInterfaceDeclaration
+169:JavaConcepts ConstructorDeclaration
+205:JavaConcepts ConstructorDeclaration
+211:z VariableDeclarator
+210:int FieldDeclaration
+213:i VariableDeclarator
+213:int FieldDeclaration
+215:QWE ConstructorDeclaration
+225:iii VariableDeclarator
+229:iii VariableDeclarator
+233:min VariableDeclarator
+234:sl VariableDeclarator
+235:minl VariableDeclarator
+240:println
+244:println
+249:println
+219:QWE ConstructorDeclaration
+257:x VariableDeclarator
+256:doSomething MethodDeclaration
+208:QWE ClassOrInterfaceDeclaration
+263:x VariableDeclarator
+264:parse
+264:cu VariableDeclarator
+265:println
+266:teste VariableDeclarator
+267:qwe VariableDeclarator
+294:i VariableDeclarator
+297:i VariableDeclarator
+297:j VariableDeclarator
+300:i VariableDeclarator
+300:j VariableDeclarator
+262:main MethodDeclaration
+307:a VariableDeclarator
+308:getName
+308:x VariableDeclarator
+309:intValue
+309:y VariableDeclarator
+319:println
+321:println
+323:println
+330:println
+337:println
+339:createInputStream
+339:in VariableDeclarator
+340:println
+342:println
+344:createInputStream
+344:in VariableDeclarator
+345:createInputStream
+345:in2 VariableDeclarator
+346:println
+348:println
+350:createInputStream
+350:in VariableDeclarator
+351:println
+354:println
+356:println
+358:println
+360:parse
+306:parse MethodDeclaration
+365:A ConstructorDeclaration
+363:A ClassOrInterfaceDeclaration
+374:a VariableDeclarator
+372:compare MethodDeclaration
+383:equals
+381:equals MethodDeclaration
+370:c VariableDeclarator
+369:x MethodDeclaration
+388:createInputStream MethodDeclaration
+12:JavaConcepts ClassOrInterfaceDeclaration
+395:check2 MethodDeclaration
+393:Base ClassOrInterfaceDeclaration
+399:XXX ClassOrInterfaceDeclaration
+
