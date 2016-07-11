@@ -23,6 +23,7 @@ public class tokenVectorCreater {
 				path, file) -> {
 			 try {
 				 PriorityQueue<Entry> q = new PriorityQueue<>();
+				 Entry A;
 				 String charArray = file.getName();
 				 String line = null;
 				 System.out.println(charArray);
@@ -44,8 +45,10 @@ public class tokenVectorCreater {
 	            }
 				while(!q.isEmpty())
 				{
-					System.out.println(q.poll());			
+					A = q.poll();
+					writer.println(TokenKey.get((A).getKey()));
 				}
+				writer.close();
 			 } catch (IOException e) {
 				new RuntimeException(e);
 			 }

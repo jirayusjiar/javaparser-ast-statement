@@ -16,9 +16,11 @@ public class Entry implements Comparable<Entry> {
     	return this.value - other.value;
     }
 
-	private String getKey() {
-		// TODO Auto-generated method stub
+    public String getKey() {
 		return this.key;
+	}
+    public int getValue() {
+		return this.value;
 	}
 	public String toString() {
         return this.key + ":" + this.value;
