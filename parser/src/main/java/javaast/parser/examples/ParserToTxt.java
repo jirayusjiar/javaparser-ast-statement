@@ -130,7 +130,7 @@ public class ParserToTxt {
 				   @Override
 				   public void visit(InitializerDeclaration n, Object arg) {
 					  super.visit(n, arg);
-					  writer.println(n.getBeginLine()+":" + n.toString() + " InitializerDeclaration" );
+					  writer.println(n.getBeginLine()+":" + n.toString().replaceAll("\n", "") + " InitializerDeclaration" );
 				   }
 				   /*
 				   @Override
@@ -144,7 +144,7 @@ public class ParserToTxt {
 					  writer.println(n.getBeginLine()+":" + n.getId() + " VariableDeclarator" );
 				   }
 				}.visit(JavaParser.parse(file), null);
-			writer.println(); // empty line
+			//writer.println(); // empty line
 			writer.close();
 		 } catch (ParseException | IOException e) {
 			new RuntimeException(e);
@@ -241,7 +241,7 @@ public class ParserToTxt {
 			   + " TypeDeclaration statement"+((TypeDeclarationStmt) node).getTypeDeclaration());
 		 return false;
 	  }*/ else if (node instanceof WhileStmt) {
-		 writer.println("[" + node.getBeginLine() + ":"
+		 writer.println(node.getBeginLine() + ":"
 			   + " While statement");
 		 check(((WhileStmt) node).getBody(),writer);
 		 return false;

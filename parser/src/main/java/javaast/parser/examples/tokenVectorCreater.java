@@ -8,6 +8,11 @@ import java.io.PrintWriter;
 import java.net.URI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.stream.Stream;
 
 import javaast.parser.support.DirExplorer;
 
@@ -17,21 +22,30 @@ public class tokenVectorCreater {
 		  new DirExplorer((level, path, file) -> path.endsWith("_AstList.txt"), (level,
 				path, file) -> {
 			 try {
+				 PriorityQueue<Entry> q = new PriorityQueue<>();
 				 String charArray = file.getName();
 				 String line = null;
 				 System.out.println(charArray);
+				 int count = 1;
+				 Map<String, Integer> TokenKey = new HashMap();
 				 charArray = charArray.substring(0,charArray.length()-4);
 				PrintWriter writer = new PrintWriter(charArray+"_TokenVector.txt", "UTF-8");
 				
 				FileReader fileReader = new FileReader("."+path);
 				BufferedReader bufferedReader = new BufferedReader(fileReader);
 				while((line = bufferedReader.readLine()) != null) {
-					
-	                System.out.println(line);
-	                
+					String[] array = line.split(":", -1);
+	                if(!TokenKey.containsKey(array[1]))
+	                {
+	                	TokenKey.put(array[1], count);
+	                	count++;
+	                }
+	                q.add(new Entry(array[1],Integer.parseInt(array[0])));
 	            }
-				
-				System.out.println(); // empty line
+				while(!q.isEmpty())
+				{
+					System.out.println(q.poll());			
+				}
 			 } catch (IOException e) {
 				new RuntimeException(e);
 			 }

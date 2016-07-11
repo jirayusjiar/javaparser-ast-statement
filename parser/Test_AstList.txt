@@ -28,4 +28,3 @@
 41:tellItLikeItIs
 31:main MethodDeclaration
 3:MyTest ClassOrInterfaceDeclaration
-

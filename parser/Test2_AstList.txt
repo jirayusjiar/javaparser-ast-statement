@@ -5,7 +5,7 @@
 276:if statement
 280:if statement
 282:if statement
-[286: While statement
+286: While statement
 288: Break statement
 290:Do statement
 293:Do statement
@@ -67,12 +67,7 @@
 51:y VariableDeclarator
 52:a VariableDeclarator
 54:b VariableDeclarator
-50:{
-    int z = 0, y = 0;
-    int a = (z) + y;
-    a = (+z) + y;
-    byte b = (byte) +y;
-} InitializerDeclaration
+50:{    int z = 0, y = 0;    int a = (z) + y;    a = (+z) + y;    byte b = (byte) +y;} InitializerDeclaration
 57:diamond1 VariableDeclarator
 57:List<String> FieldDeclaration
 62:x VariableDeclarator
@@ -93,12 +88,8 @@
 109:int[] FieldDeclaration
 111:t VariableDeclarator
 111:JavaConcepts FieldDeclaration
-113:static {
-    arr4 = new int[][] { { 2 }, { 1 } };
-} InitializerDeclaration
-117:{
-    arr3 = new int[][] { { 2 }, { 1 } };
-} InitializerDeclaration
+113:static {    arr4 = new int[][] { { 2 }, { 1 } };} InitializerDeclaration
+117:{    arr3 = new int[][] { { 2 }, { 1 } };} InitializerDeclaration
 123:asc EnumConstantDeclaration
 123:def EnumConstantDeclaration
 121:Teste EnumDeclaration
@@ -205,4 +196,3 @@
 395:check2 MethodDeclaration
 393:Base ClassOrInterfaceDeclaration
 399:XXX ClassOrInterfaceDeclaration
-
