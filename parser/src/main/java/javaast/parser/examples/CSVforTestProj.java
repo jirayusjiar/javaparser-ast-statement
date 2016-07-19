@@ -108,7 +108,7 @@ public class CSVforTestProj {
 	   }
 		try {
 			
-			writer = new PrintWriter("Data.csv", "UTF-8");
+			writer = new PrintWriter("Test.csv", "UTF-8");
 			writer.println("\"FileName\",\"TokenVector\"");
 	  new DirExplorer((level, path, file) -> path.endsWith(".java"), (level,
 			path, file) -> {
@@ -195,6 +195,7 @@ public class CSVforTestProj {
 				   @Override
 				   public void visit(InitializerDeclaration n, Object arg) {
 					  super.visit(n, arg);
+					  check(n.getBlock(), writer, q, TokenKey, count);
 					  //writer.println(n.getBeginLine()+":" + n.toString().replaceAll("\n", "") + " InitializerDeclaration" );
 					  QandM_Handle(n.getBeginLine()+":" + n.toString().replaceAll("\n", "") + " InitializerDeclaration",q,TokenKey,count);
 				   }
@@ -218,7 +219,7 @@ public class CSVforTestProj {
 		 }
 	  }).explore(projectDir);
 	  writer.close();
-	  PrintWriter writer_two = new PrintWriter("Map.csv", "UTF-8");
+	  PrintWriter writer_two = new PrintWriter("Map_Test.csv", "UTF-8");
 	  writer_two.println("\"Key\",\"Token\"");
 	  for (String name: TokenKey.keySet()){
 
@@ -320,7 +321,7 @@ public class CSVforTestProj {
    
 
    public static void main(String[] args) {
-	  File projectDir = new File("data");
+	  File projectDir = new File("Test_Proj");
 	  statementsByLine(projectDir);
    }
 }

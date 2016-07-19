@@ -9,9 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-import javaast.parser.support.DirExplorer;
-import javaast.parser.support.NodeIterator;
-
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseException;
 import com.github.javaparser.ast.Node;
@@ -27,31 +24,25 @@ import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.InitializerDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
-import com.github.javaparser.ast.stmt.AssertStmt;
+import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.BreakStmt;
 import com.github.javaparser.ast.stmt.CatchClause;
 import com.github.javaparser.ast.stmt.ContinueStmt;
 import com.github.javaparser.ast.stmt.DoStmt;
-import com.github.javaparser.ast.stmt.EmptyStmt;
-import com.github.javaparser.ast.stmt.ExplicitConstructorInvocationStmt;
-import com.github.javaparser.ast.stmt.ExpressionStmt;
 import com.github.javaparser.ast.stmt.ForStmt;
 import com.github.javaparser.ast.stmt.ForeachStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
-import com.github.javaparser.ast.stmt.LabeledStmt;
 import com.github.javaparser.ast.stmt.ReturnStmt;
 import com.github.javaparser.ast.stmt.SwitchEntryStmt;
 import com.github.javaparser.ast.stmt.SwitchStmt;
-import com.github.javaparser.ast.stmt.SynchronizedStmt;
 import com.github.javaparser.ast.stmt.ThrowStmt;
 import com.github.javaparser.ast.stmt.TryStmt;
-import com.github.javaparser.ast.stmt.TypeDeclarationStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import com.github.javaparser.ast.expr.Expression;
-import com.github.javaparser.ast.expr.MethodCallExpr;
-import com.google.common.base.Strings;
+
+import javaast.parser.support.DirExplorer;
+import javaast.parser.support.NodeIterator;
 
 public class CreateCSVofProj {
    public static void statementsByLine(File projectDir) {
@@ -146,6 +137,7 @@ public class CreateCSVofProj {
 				   @Override
 				   public void visit(InitializerDeclaration n, Object arg) {
 					  super.visit(n, arg);
+					  check(n.getBlock(), writer, q, TokenKey, count);
 					  //writer.println(n.getBeginLine()+":" + n.toString().replaceAll("\n", "") + " InitializerDeclaration" );
 					  QandM_Handle(n.getBeginLine()+":" + n.toString().replaceAll("\n", "") + " InitializerDeclaration",q,TokenKey,count);
 				   }
@@ -271,7 +263,7 @@ public class CreateCSVofProj {
    
 
    public static void main(String[] args) {
-	  File projectDir = new File("data");
+	  File projectDir = new File("data_Proj");
 	  statementsByLine(projectDir);
    }
 }

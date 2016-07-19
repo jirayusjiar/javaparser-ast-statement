@@ -130,6 +130,7 @@ public class ParserToTxt {
 				   @Override
 				   public void visit(InitializerDeclaration n, Object arg) {
 					  super.visit(n, arg);
+					  check(n.getBlock(), writer);
 					  writer.println(n.getBeginLine()+":" + n.toString().replaceAll("\n", "") + " InitializerDeclaration" );
 				   }
 				   /*

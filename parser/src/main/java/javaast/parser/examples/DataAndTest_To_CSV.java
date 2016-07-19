@@ -1,14 +1,13 @@
 package javaast.parser.examples;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
-
-import javaast.parser.support.DirExplorer;
-import javaast.parser.support.NodeIterator;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseException;
@@ -25,36 +24,34 @@ import com.github.javaparser.ast.body.FieldDeclaration;
 import com.github.javaparser.ast.body.InitializerDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.body.VariableDeclarator;
-import com.github.javaparser.ast.stmt.AssertStmt;
+import com.github.javaparser.ast.expr.MethodCallExpr;
 import com.github.javaparser.ast.stmt.BlockStmt;
 import com.github.javaparser.ast.stmt.BreakStmt;
 import com.github.javaparser.ast.stmt.CatchClause;
 import com.github.javaparser.ast.stmt.ContinueStmt;
 import com.github.javaparser.ast.stmt.DoStmt;
-import com.github.javaparser.ast.stmt.EmptyStmt;
-import com.github.javaparser.ast.stmt.ExplicitConstructorInvocationStmt;
-import com.github.javaparser.ast.stmt.ExpressionStmt;
 import com.github.javaparser.ast.stmt.ForStmt;
 import com.github.javaparser.ast.stmt.ForeachStmt;
 import com.github.javaparser.ast.stmt.IfStmt;
-import com.github.javaparser.ast.stmt.LabeledStmt;
 import com.github.javaparser.ast.stmt.ReturnStmt;
 import com.github.javaparser.ast.stmt.SwitchEntryStmt;
 import com.github.javaparser.ast.stmt.SwitchStmt;
-import com.github.javaparser.ast.stmt.SynchronizedStmt;
 import com.github.javaparser.ast.stmt.ThrowStmt;
 import com.github.javaparser.ast.stmt.TryStmt;
-import com.github.javaparser.ast.stmt.TypeDeclarationStmt;
 import com.github.javaparser.ast.stmt.WhileStmt;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import com.github.javaparser.ast.expr.Expression;
-import com.github.javaparser.ast.expr.MethodCallExpr;
-import com.google.common.base.Strings;
 
-public class CreatertokenVectorFromCode {
+import javaast.parser.support.DirExplorer;
+import javaast.parser.support.NodeIterator;
+
+public class DataAndTest_To_CSV {
    public static void statementsByLine(File projectDir) {
 	   Map<String, Integer> TokenKey = new HashMap();
 	   int[] count = {1,1};
+	   PrintWriter writer;
+		try {
+			writer = new PrintWriter("Data.csv", "UTF-8");
+			writer.println("\"FileName\",\"TokenVector\"");
 	  new DirExplorer((level, path, file) -> path.endsWith(".java"), (level,
 			path, file) -> {
 		 try {
@@ -62,10 +59,8 @@ public class CreatertokenVectorFromCode {
 			 Entry A;
 			 String charArray = path;
 			 System.out.println(charArray);
-			 charArray = charArray.substring(1,charArray.length()-5);
-			 charArray=charArray.replaceAll("/", ":");
-			 System.out.println(charArray);
-			PrintWriter writer = new PrintWriter(charArray+"_TokenVectorVer2.txt", "UTF-8");
+			 charArray = charArray.substring(1,charArray.length());
+			 writer.print("\""+charArray+"\",\"");
 			new NodeIterator(new NodeIterator.NodeHandler() {
 			   @Override
 			   public boolean handle(Node node) {
@@ -142,9 +137,7 @@ public class CreatertokenVectorFromCode {
 				   @Override
 				   public void visit(InitializerDeclaration n, Object arg) {
 					  super.visit(n, arg);
-					  //for (Node childNode : n.getBlock().getChildrenNodes()) {
-					//		check(childNode,writer,q,TokenKey,count);
-					//	 }
+					  check(n.getBlock(), writer, q, TokenKey, count);
 					  //writer.println(n.getBeginLine()+":" + n.toString().replaceAll("\n", "") + " InitializerDeclaration" );
 					  QandM_Handle(n.getBeginLine()+":" + n.toString().replaceAll("\n", "") + " InitializerDeclaration",q,TokenKey,count);
 				   }
@@ -155,16 +148,31 @@ public class CreatertokenVectorFromCode {
 					  QandM_Handle(n.getBeginLine()+":" + n.getId() + " VariableDeclarator",q,TokenKey,count);
 				   }
 				}.visit(JavaParser.parse(file), null);
+				A = q.poll();
+				writer.print(TokenKey.get((A).getKey()));
 				while(!q.isEmpty())
 				{
 					A = q.poll();
-					writer.println(TokenKey.get((A).getKey()));
+					writer.print(","+TokenKey.get((A).getKey()));
 				}
-				writer.close();
+				writer.println("\"");
 		 } catch (ParseException | IOException e) {
 			new RuntimeException(e);
 		 }
 	  }).explore(projectDir);
+	  writer.close();
+	  PrintWriter writer_two = new PrintWriter("Map.csv", "UTF-8");
+	  writer_two.println("\"Key\",\"Token\"");
+	  for (String name: TokenKey.keySet()){
+
+          String key =name.toString();
+          String value = TokenKey.get(name).toString();  
+          writer_two.println("\""+key+"\",\""+value+"\"");
+	  }
+	  writer_two.close();
+   } catch (FileNotFoundException | UnsupportedEncodingException e1) {
+		e1.printStackTrace();
+	}
    }
    
    public static boolean check(Node node,PrintWriter writer,PriorityQueue<Entry> q,Map<String, Integer> TokenKey,int[] count) { //Check statement Type //filter out statement that don,t use in this work
@@ -255,7 +263,7 @@ public class CreatertokenVectorFromCode {
    
 
    public static void main(String[] args) {
-	  File projectDir = new File("data");
+	  File projectDir = new File("data_Proj");
 	  statementsByLine(projectDir);
    }
 }
