@@ -149,10 +149,12 @@ public class CreateCSVofProj {
 				   }
 				}.visit(JavaParser.parse(file), null);
 				A = q.poll();
-				writer.print(TokenKey.get((A).getKey()));
+				if(A!=null)
+					writer.print(TokenKey.get((A).getKey()));
 				while(!q.isEmpty())
 				{
 					A = q.poll();
+					if(A!=null)
 					writer.print(","+TokenKey.get((A).getKey()));
 				}
 				writer.println("\"");
@@ -263,7 +265,7 @@ public class CreateCSVofProj {
    
 
    public static void main(String[] args) {
-	  File projectDir = new File("data_Proj");
+	  File projectDir = new File("Test_Proj");
 	  statementsByLine(projectDir);
    }
 }

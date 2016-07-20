@@ -45,12 +45,10 @@ import javaast.parser.support.DirExplorer;
 import javaast.parser.support.NodeIterator;
 
 public class DataAndTest_To_CSV {
-   public static void statementsByLine(File projectDir) {
-	   Map<String, Integer> TokenKey = new HashMap();
-	   int[] count = {1,1};
+   public static void statementsByLine(File projectDir,Map<String, Integer> TokenKey,String Name,int[] count) {
 	   PrintWriter writer;
 		try {
-			writer = new PrintWriter("Data.csv", "UTF-8");
+			writer = new PrintWriter(Name+".csv", "UTF-8");
 			writer.println("\"FileName\",\"TokenVector\"");
 	  new DirExplorer((level, path, file) -> path.endsWith(".java"), (level,
 			path, file) -> {
@@ -149,10 +147,12 @@ public class DataAndTest_To_CSV {
 				   }
 				}.visit(JavaParser.parse(file), null);
 				A = q.poll();
+				if(A!=null)
 				writer.print(TokenKey.get((A).getKey()));
 				while(!q.isEmpty())
 				{
 					A = q.poll();
+					if(A!=null)
 					writer.print(","+TokenKey.get((A).getKey()));
 				}
 				writer.println("\"");
@@ -161,15 +161,6 @@ public class DataAndTest_To_CSV {
 		 }
 	  }).explore(projectDir);
 	  writer.close();
-	  PrintWriter writer_two = new PrintWriter("Map.csv", "UTF-8");
-	  writer_two.println("\"Key\",\"Token\"");
-	  for (String name: TokenKey.keySet()){
-
-          String key =name.toString();
-          String value = TokenKey.get(name).toString();  
-          writer_two.println("\""+key+"\",\""+value+"\"");
-	  }
-	  writer_two.close();
    } catch (FileNotFoundException | UnsupportedEncodingException e1) {
 		e1.printStackTrace();
 	}
@@ -263,7 +254,27 @@ public class DataAndTest_To_CSV {
    
 
    public static void main(String[] args) {
-	  File projectDir = new File("data_Proj");
-	  statementsByLine(projectDir);
+	  Map<String, Integer> TokenKey = new HashMap();
+	  int[] count = {1,1};
+	  count[0]=1;
+	  File data_Proj = new File("data_Proj");
+	  File Test_Proj = new File("Test_Proj");
+	  statementsByLine(data_Proj,TokenKey,"Data_Proj",count);
+	  statementsByLine(Test_Proj,TokenKey,"Test_Proj",count);
+	  PrintWriter writer_two;
+	try {
+		writer_two = new PrintWriter("Map.csv", "UTF-8");
+		 writer_two.println("\"Key\",\"Token\"");
+		  for (String name: TokenKey.keySet()){
+
+	          String key =name.toString();
+	          String value = TokenKey.get(name).toString();  
+	          writer_two.println("\""+key+"\",\""+value+"\"");
+		  }
+		  writer_two.close();
+	} catch (FileNotFoundException | UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
    }
 }
