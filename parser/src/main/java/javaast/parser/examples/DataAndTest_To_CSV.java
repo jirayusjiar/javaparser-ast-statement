@@ -153,7 +153,7 @@ public class DataAndTest_To_CSV {
 				{
 					A = q.poll();
 					if(A!=null)
-					writer.print(","+TokenKey.get((A).getKey()));
+					writer.print("#"+TokenKey.get((A).getKey()));
 				}
 				writer.println("\"");
 		 } catch (ParseException | IOException e) {
